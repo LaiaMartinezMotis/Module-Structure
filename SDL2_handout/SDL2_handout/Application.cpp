@@ -3,7 +3,7 @@
 
 Application::Application()
 {
-	//modules[0] = win = new ModuleWindow();
+	modules[0] = win = new ModuleWindow();
 }	
 
 bool Application::Init()

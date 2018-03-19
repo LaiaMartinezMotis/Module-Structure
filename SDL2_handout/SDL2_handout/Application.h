@@ -13,7 +13,7 @@ class Application
 public:
 
 	Module* modules[NUM_MODULES];
-	//ModuleWindow* win;
+	ModuleWindow* win;
 
 public:
 
