@@ -6,20 +6,25 @@
 
 // TODO 2: Init the library and check for possible error
 // using SDL_GetError()
-bool WindowModule::Init() {
+bool ModuleWindow::Init() {
+	Uint32 flags;
 	int var = SDL_Init(SDL_INIT_VIDEO);
 	if (var < 0) {
 		LOG(SDL_GetError());
-		return false;
-	window = SDL_CreateWindow(WIN_TITLE, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT,0);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		return false;}
+	else {
+		if (FULLSCREEN == 1) {
+			flags = SDL_WINDOW_FULLSCREEN;
+		}
+		window = SDL_CreateWindow(WIN_TITLE, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+		//renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);//
 	}
 }
 
 //SDL_RenderClear(renderer);//
 
-bool  WindowModule::CleanUp() {
-	SDL_DestroyRenderer(renderer);
+bool  ModuleWindow::CleanUp() {
+	//SDL_DestroyRenderer(renderer);//
 	SDL_DestroyWindow(window);
 	SDL_Quit;
 	return true;

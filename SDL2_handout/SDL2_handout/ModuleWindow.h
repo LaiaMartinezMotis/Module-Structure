@@ -3,12 +3,15 @@
 
 // TODO 1: Create the declaration of ModuleWindow class
 struct SDL_Window;
-class WindowModule : public Module {
+struct SDL_Surface;
+class ModuleWindow : public Module {
 public:
 	bool Init();
 	bool CleanUp();
+
 public: 
-	SDL_Window*window = nullptr;
-	SDL_Renderer*renderer=nullptr
+	SDL_Window* window = nullptr;
+	//SDL_Renderer* renderer = nullptr;//
 };
+
 #endif // __ModuleWindow_H__

@@ -1,10 +1,22 @@
 #include "Application.h"
 #include "ModuleWindow.h"
+#include "ModuleRender.h"
+#include "ModuleInput.h"
+#include "ModuleTextures.h"
 
 Application::Application()
 {
-	modules[0] = win = new ModuleWindow();
+	modules[0] = window = new ModuleWindow();
+	modules[1] = render = new ModuleRender();
+	modules[2] = input = new ModuleInput();
+	modules[3] = textures = new ModuleTextures();
 }	
+
+Application::~Application()
+{
+	for(int i = NUM_MODULES - 1; i >= 0; --i)
+		delete modules[i];
+}
 
 bool Application::Init()
 {
